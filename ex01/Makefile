@@ -2,7 +2,7 @@ Name= Polymorphism
 
 CC= c++ 
 CFLAGS= -Wall -Wextra -Werror -std=c++98 -g3
-src= main.cpp Cat.cpp Dog.cpp Animal.cpp WrongAnimal.cpp WrongCat.cpp
+src= main.cpp Cat.cpp Dog.cpp Animal.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp
 obj= $(src:.cpp=.o)
  
 all: $(Name)

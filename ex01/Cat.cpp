@@ -2,20 +2,31 @@
 #include "Brain.hpp"
 
 Cat::Cat(): Animal(){
+    std::cout << "Cat Default constructor Called\n";
     type = "Cat";
     brain = new Brain();
-    std::cout << "Cat Default constructor Called\n";
 }
 
 Cat::Cat(const Cat& other): Animal(other){
     std::cout << "Cat copy constructor Called\n";
-    *this = other;
+    if (this != &other)
+    {
+        if (other.brain)
+            brain = new Brain(*(other.brain));
+        else
+            brain = new Brain();
+        type = other.type;
+    }
 }
 
 Cat& Cat::operator=(const Cat& other){
     std::cout << "Cat copy assignement operator Called\n";
     if (this != &other){
-        brain = other.brain;
+        delete brain;
+        if (other.brain)
+            brain = new Brain(*(other.brain));
+        else
+            brain = new Brain();
         type = other.type;
     }
     return *this;
